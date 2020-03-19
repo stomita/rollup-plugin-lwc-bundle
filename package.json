@@ -12,7 +12,8 @@
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src -o lib",
+    "build": "babel src -d lib",
+    "cleanup": "rm -rf lib/*",
     "prettier": "prettier src/* --write",
     "test": "jest"
   },
