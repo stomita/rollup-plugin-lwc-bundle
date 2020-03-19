@@ -1,4 +1,5 @@
 import path from 'path';
+import { createFilter } from '@rollup/pluginutils';
 import { transformAsync } from '@babel/core';
 import { evacuateFeaturesPlugin } from 'babel-plugin-transform-evacuate-features';
 import babelTransformLwcBundlePlugin from './babel-lwc-bundle';
@@ -6,7 +7,9 @@ import babelTransformLwcBundlePlugin from './babel-lwc-bundle';
 /**
  *
  */
-const rollupLwcBundlePlugin = function({ babelOptions = {} } = {}) {
+const rollupLwcBundlePlugin = function(options = {}) {
+  const { include, exclude, babelOptions = {} } = options;
+  const filter = createFilter(include, exclude, { resolve: false });
   return {
     name: 'rollup-lwc-bundle-plugin',
     async generateBundle(_, bundle) {

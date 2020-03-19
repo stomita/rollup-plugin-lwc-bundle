@@ -26,6 +26,7 @@
     "@babel/core": "^7.8.7",
     "@babel/helper-plugin-utils": "^7.8.3",
     "@babel/types": "^7.8.7",
+    "@rollup/pluginutils": "^3.0.8",
     "babel-plugin-transform-evacuate-features": "^1.1.0"
   },
   "peerDependencies": {
