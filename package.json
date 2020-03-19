@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-lwc-bundle",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Generate a lightning web component JS bundle",
   "keywords": [
     "rollup-plugin",
