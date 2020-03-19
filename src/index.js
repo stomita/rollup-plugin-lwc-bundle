@@ -12,13 +12,13 @@ const rollupLwcBundlePlugin = function(options = {}) {
   const filter = createFilter(include, exclude, { resolve: false });
   return {
     name: 'rollup-lwc-bundle-plugin',
-    async renderChunk(_, chunk) {
+    async renderChunk(inputCode, chunk) {
       if (!filter(chunk.fileName)) {
         return null;
       }
-      let { code, map } = await transformAsync(chunk.code, {
+      const { code, map } = await transformAsync(inputCode, {
         configFile: path.resolve(__dirname, 'lwc-bundle.babel.config.js'),
-        filename: name,
+        filename: chunk.fileName,
         ...babelOptions,
         plugins: [
           babelTransformLwcBundlePlugin,

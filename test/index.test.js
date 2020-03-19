@@ -41,7 +41,7 @@ describe('rollup lwc bundle', () => {
         fs.writeFileSync(outputFile, code, 'utf8');
       }
       if (expected) {
-        expect(code).toBe(expected);
+        expect(code.trim()).toBe(expected.trim());
       }
     });
   }
