@@ -6,7 +6,7 @@ import babelTransformLwcBundlePlugin from './babel-lwc-bundle';
 /**
  *
  */
-const rollupLwcBundlePlugin = function() {
+const rollupLwcBundlePlugin = function({ babelOptions = {} } = {}) {
   return {
     name: 'rollup-lwc-bundle-plugin',
     async generateBundle(_, bundle) {
@@ -15,9 +15,13 @@ const rollupLwcBundlePlugin = function() {
         const { code, map } = await transformAsync(info.code, {
           configFile: path.resolve(__dirname, 'lwc-bundle.babel.config.js'),
           filename: name,
-          plugins: [babelTransformLwcBundlePlugin],
+          ...babelOptions,
+          plugins: [
+            babelTransformLwcBundlePlugin,
+            ...(babelOptions.plugins || []),
+          ],
           inputSourceMap: info.map || false,
-          minified: true
+          minified: true,
         });
         info.code = code;
         if (map) {
