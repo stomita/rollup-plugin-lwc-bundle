@@ -17,6 +17,11 @@
     "prettier": "prettier src/* --write",
     "test": "jest"
   },
+  "files": [
+    "lib",
+    "src",
+    "test"
+  ],
   "dependencies": {
     "@babel/core": "^7.8.7",
     "@babel/helper-plugin-utils": "^7.8.3",
