@@ -12,26 +12,22 @@ const rollupLwcBundlePlugin = function(options = {}) {
   const filter = createFilter(include, exclude, { resolve: false });
   return {
     name: 'rollup-lwc-bundle-plugin',
-    async generateBundle(_, bundle) {
-      for (const name of Object.keys(bundle)) {
-        const info = bundle[name];
-        const { code, map } = await transformAsync(info.code, {
-          configFile: path.resolve(__dirname, 'lwc-bundle.babel.config.js'),
-          filename: name,
-          ...babelOptions,
-          plugins: [
-            babelTransformLwcBundlePlugin,
-            ...(babelOptions.plugins || []),
-          ],
-          inputSourceMap: info.map || false,
-          minified: true,
-        });
-        info.code = code;
-        if (map) {
-          info.map = map;
-        }
+    async renderChunk(_, chunk) {
+      if (!filter(chunk.fileName)) {
+        return null;
       }
-      return null;
+      let { code, map } = await transformAsync(chunk.code, {
+        configFile: path.resolve(__dirname, 'lwc-bundle.babel.config.js'),
+        filename: name,
+        ...babelOptions,
+        plugins: [
+          babelTransformLwcBundlePlugin,
+          ...(babelOptions.plugins || [])
+        ],
+        inputSourceMap: chunk.map || false,
+        minified: true
+      });
+      return { code, map };
     }
   };
 };
