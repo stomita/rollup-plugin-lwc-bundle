@@ -1,0 +1,36 @@
+{
+  "name": "rollup-plugin-lwc-bundle",
+  "version": "1.0.0",
+  "description": "Generate a lightning web component JS bundle",
+  "keywords": [
+    "rollup-plugin",
+    "lightning-web-components"
+  ],
+  "repository": "https://github.com/stomita/rollup-plugin-lwc-bundle",
+  "homepage": "https://github.com/stomita/rollup-plugin-lwc-bundle",
+  "author": "Shinichi Tomita <shinichi.tomita@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -o lib",
+    "prettier": "prettier src/* --write",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/helper-plugin-utils": "^7.8.3",
+    "@babel/types": "^7.8.7",
+    "babel-plugin-transform-evacuate-features": "^1.1.0"
+  },
+  "peerDependencies": {
+    "rollup": ">=0.60.0 <2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/preset-env": "^7.8.7",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}

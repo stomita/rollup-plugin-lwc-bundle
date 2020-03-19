@@ -1,0 +1,1 @@
+import{LightningElement,track,api,wire}from"lwc";class MyElement extends LightningElement{@api recordId;@track records=[];@wire()handleRecords(ret){this.records=ret.data}}export default MyElement;

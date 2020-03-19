@@ -1,0 +1,1 @@
+import{LightningElement,track,api,wire}from"lwc";class MyElement extends LightningElement{}export default MyElement;
