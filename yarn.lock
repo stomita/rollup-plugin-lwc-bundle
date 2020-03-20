@@ -1219,10 +1219,10 @@ babel-plugin-jest-hoist@^25.1.0:
   dependencies:
     "@types/babel__traverse" "^7.0.6"
 
-babel-plugin-transform-evacuate-features@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-evacuate-features/-/babel-plugin-transform-evacuate-features-1.1.0.tgz#b6e25495f9fbbb17829973ea3bfe50592044db1a"
-  integrity sha512-GJMfCLAvVaF4yE25+Jd5ym6KdSal2o67EQiXZTQ0/o1qeWSVFgY9K8Wc5Soe/pk8Zz0+lWXPhrARV1MdG8ZtRw==
+babel-plugin-transform-evacuate-features@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-evacuate-features/-/babel-plugin-transform-evacuate-features-2.0.0.tgz#66d32ad52a9649e140e0c20e7d7100b61830cb4f"
+  integrity sha512-qzK0xAo5KNR8iycED4Jt5k87JX5PouT+hzk7H9mz4fhTxRRflkB6/3S0A4dKKLuoTuC0Qe8rI8YyDvxtr1Aw1Q==
   dependencies:
     "@babel/generator" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
