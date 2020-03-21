@@ -1,5 +1,9 @@
 import { LightningElement, api, wire } from 'lwc';
 
+function getRecord() {
+  console.log('hello');
+}
+
 export default class MyElement extends LightningElement {
   @api
   recordId;
@@ -7,7 +11,7 @@ export default class MyElement extends LightningElement {
   @track
   records = [];
 
-  @wire()
+  @wire(getRecord)
   handleRecords(ret) {
     this.records = ret.data;
   }
